@@ -1,0 +1,12 @@
+Push images to registry
+
+1. Create new repository in hub.docker.com
+2. Set name : app-golang
+3. Create
+4. docker tag app-golang:1.0 username/app-golang:1.0
+5. Check image : docker images
+6. docker push username/app-golang:1.0
+      -if denied, login from terminal
+7. docker login, insert username and password
+8. Step 6 again
+9. Finish

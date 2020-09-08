@@ -1,0 +1,14 @@
+Store data with volume, if container remove, data not gone
+
+Create volume : 
+docker volume create volumename
+
+Create container with volume parameter :
+docker container create --name containername -p 8080:port -v volumename:mount/dir imagename
+
+
+
+Local Storage
+use Bind mounts
+
+docker container create --name containername -p 8080:port -v local/path:mount/dir imagename

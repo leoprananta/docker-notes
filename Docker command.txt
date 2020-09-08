@@ -1,0 +1,39 @@
+Docker adalah sebuah aplikasi yang bersifat open source yang berfungsi sebagai wadah/container untuk 
+mengepak/memasukkan sebuah software secara lengkap beserta semua hal lainnya yang dibutuhkan oleh 
+software tersebut dapat berfungsi.
+
+mindset : golang, butuh image(FROM golang:tags)
+lalu dia dibikin image golang, lalu create container, lalu connect ke db container, network, dst
+
+
+Docker Command
+
+--Images
+get images			: docker pull imagename
+get images with tag		: docker pull imagename:tags
+list images			: docker images OR docker image ls
+remove images			: docker image rm imagename:tags
+   -if want to remove image, make sure all have no container using these images.
+build image			: docker build --tag imagename:tags
+check image version etc		: docker image inspect imagename:tags
+
+--Container
+list active container		: docker container ls
+list all container		: docker container ls --all
+create container		: docker container create --name containername
+create container export port	: docker container create --name containername -p 8080:port imagename
+    with environment var	: docker container create --name containername -p 8080:port -e VAR=value -e VAR=value imagename
+    check environment var	: docker container inspect imagename
+    with volumes		: docker container create --name containername -p 8080:port -v volumename:mount/dir imagename
+start container			: docker container start containername
+stop container			: docker container stop containername
+remove container		: docker container rm continername
+Enter to container		: docker exec -t -i containername script
+    ex				: docker exec -t -i redis /bin/bash
+
+--Push Docker Image
+push from local to repository	: docker tag local-image:tagname reponame:tagname
+
+--Remove unused data
+prune				: docker system prune
+   with volumes			: docker system prune -a --volumes
